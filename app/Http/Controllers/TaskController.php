@@ -19,15 +19,15 @@ class TaskController extends Controller
         }
 
         if($request->get('status')){
-            $data = $data->where('status', 'LIKE', '%'.$request->get('status'));
+            $data = $data->where('status', 'LIKE', '%'.$request->get('status').'%');
         }
 
         if($request->get('priority')){
-            $data = $data->where('priority', 'LIKE', '%'.$request->get('status'));
+            $data = $data->where('priority', 'LIKE', '%'.$request->get('status').'%');
         }
         
         if($request->get('due_date')){
-            $data = $data->where('due_date', 'LIKE', '%'.$request->get('status'));
+            $data = $data->where('due_date', 'LIKE', '%'.$request->get('due_date').'%');
         }
 
         $data = $data->get();
