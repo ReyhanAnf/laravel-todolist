@@ -8,6 +8,9 @@ export default {
     'node_modules/preline/dist/*.js',
   ],
   theme: {
+    fontFamily: {
+      'sans': ['Poppins']
+    },
     extend: {
     colors: {
 
