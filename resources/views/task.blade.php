@@ -15,12 +15,14 @@
                 <x-heroicon-o-plus class="size-5" />
                 Add Task
             </a>
+
             <div class="flex flex-row flex-wrap md:flex-nowrap gap-5 md:gap-3 ">
-                <form action="/task" method="get" class="flex flex-row py-5 px-2 w-screen md:w-full overflow-scroll md:overflow-auto gap-3">
+                <form action="/task" method="get"
+                    class="flex flex-row py-5 px-2 w-screen md:w-full overflow-scroll md:overflow-auto gap-3">
                     <div class="relative flex flex-row items-center">
-                        <input type="date" name="due_date" id="due_date"
+                        <input type="date" name="due_date" id="due_date"  value="{{ $request->get('due_date') }}"
                             class=" w-full p-2 shadow-sm rounded-md ring-1 ring-gray-200">
-    
+
                         <script>
                             // Initialize Flatpickr
                             flatpickr("#due", {
@@ -28,15 +30,13 @@
                                 dateFormat: "Y-m-d",
                                 altInput: true,
                                 altFormat: "F j, Y",
-    
+
                             });
                         </script>
                     </div>
-                    <input type="number" placeholder="Priority"
-                    name="priority"
-                        class="py-3 px-4 w-24 block bg-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"/>
-                    <select
-                    name="status"
+                    <input type="number" placeholder="Priority" name="priority"  value="{{ $request->get('priority') }}"
+                        class="py-3 px-4 w-24 block bg-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" />
+                    <select name="status"  value="{{ $request->get('status') }}"
                         class="py-3 px-4 pe-5 w-28 block border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                         <option selected="">Status</option>
                         <option value="pending">Pending</option>
@@ -49,6 +49,10 @@
                         <x-hugeicons-filter />
                         Filter
                     </button>
+                    <a href={{ route('task') }}
+                        class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent border-primary text-gray-800 hover:bg-secondary focus:outline-none focus:bg-secondary disabled:opacity-50 disabled:pointer-events-none  shadow-sm">
+                        Clear Filter
+                    </a>
                 </form>
                 <form action="/task" method="get" class="flex flex-row py-5 w-screen md:w-1/2 overflow-scroll gap-3">
                     <input type="text" name="search" value="{{ $request->get('search') }}"
