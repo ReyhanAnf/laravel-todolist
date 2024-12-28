@@ -20,9 +20,9 @@ class TaskController extends Controller
 
         if($request->get('due_date')){
             $date = Carbon::parse($request->get('due_date'));
-            $data = $data->whereDate('due_date' ,$date);
+            $data = $data->where('due_date' ,$date);
         }
-        
+
         if($request->get('status')){
             $data = $data->where('status', 'LIKE', '%'.$request->get('status').'%');
         }
@@ -45,7 +45,8 @@ class TaskController extends Controller
             'description' => 'max:255',
             'status' => 'required|string|max:255',
             'due_date' => 'string|max:255',
-            'tags' => 'max:255'
+            'tags' => 'max:255',
+            'priority' => 'max:255'
         ]);
 
         
