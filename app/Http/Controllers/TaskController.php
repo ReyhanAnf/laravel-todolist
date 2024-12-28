@@ -66,7 +66,8 @@ class TaskController extends Controller
             'description' => 'max:255',
             'status' => 'max:255',
             'due_date' => 'max:255',
-            'tags' => 'max:255'
+            'tags' => 'max:255',
+            'priority' => 'max:255'
         ]);
 
         $validate['user_id'] = auth()->user()->id;
