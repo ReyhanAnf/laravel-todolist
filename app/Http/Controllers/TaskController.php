@@ -18,10 +18,12 @@ class TaskController extends Controller
             ->orWhere('tags', 'LIKE', '%'.$request->get('search').'%');            
         }
         
-        if($request->get('status') or $request->get('due_date')){
-            $date = Carbon::parse($request->get('due_date'));
-            $data = $data->where('status', 'LIKE', '%'.$request->get('status').'%')
-            ->orWhereDate('due_date', $date);
+        if($request->get('status')){
+            $data = $data->where('status', 'LIKE', '%'.$request->get('status').'%');
+            if($request->get('due_date')){
+                $date = Carbon::parse($request->get('due_date'));
+                $data->whereDate('due_date', $date);
+            }
         }
         
 
