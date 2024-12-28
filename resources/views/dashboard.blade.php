@@ -1,6 +1,6 @@
 <x-layout>
     <main class="flex flex-col items-center justify-center gap-4">
-        <h2 class="text-3xl font-semibold py-20 ">Hai, Login atau Daftar untuk dapat mengakses semua fitur!</h2>
+        <h2 class="text-3xl font-semibold py-20 ">Hai, {{ auth()->user()->name }}, Selamat datang!</h2>
         <blockquote class="relative text-center max-w-lg mx-auto">
             <div class="relative z-10">
               <p class="text-xl text-gray-800">
@@ -13,13 +13,8 @@
               </p>
             </div>
           </blockquote>
-        <div class="flex flex-row gap-5 w-1/3">
-            <a href="{{ route('login') }}" class="py-3 my-5 px-4 inline-flex w-full text-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-teal-100 text-teal-800 hover:bg-teal-200 focus:outline-none focus:bg-teal-200 disabled:opacity-50 disabled:pointer-events-none dark:text-teal-500 dark:bg-teal-800/30 dark:hover:bg-teal-800/20 dark:focus:bg-teal-800/20">
-                Login
-            </a>
-            <a href="{{ route('login') }}" class="py-3 my-5 px-4 inline-flex w-full text-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-teal-100 text-teal-800 hover:bg-teal-200 focus:outline-none focus:bg-teal-200 disabled:opacity-50 disabled:pointer-events-none dark:text-teal-500 dark:bg-teal-800/30 dark:hover:bg-teal-800/20 dark:focus:bg-teal-800/20">
-                Register
-            </a>
-        </div>
+        <a href="{{ route('task') }}" class="py-3 my-5 px-4 inline-flex w-full text-center sm:w-1/3 items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-teal-100 text-teal-800 hover:bg-teal-200 focus:outline-none focus:bg-teal-200 disabled:opacity-50 disabled:pointer-events-none dark:text-teal-500 dark:bg-teal-800/30 dark:hover:bg-teal-800/20 dark:focus:bg-teal-800/20">
+            Buat Tugas
+        </a>
     </main>
 </x-layout>
