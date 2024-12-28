@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Todo;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -18,21 +18,18 @@ class TaskController extends Controller
             ->orWhere('tags', 'LIKE', '%'.$request->get('search').'%');            
         }
 
+        if($request->get('due_date')){
+            $date = Carbon::parse($request->get('due_date'));
+            $data = $data->whereDate('due_date' ,$date);
+        }
+        
         if($request->get('status')){
             $data = $data->where('status', 'LIKE', '%'.$request->get('status').'%');
         }
-
-        // if($request->get('priority')){
-        //     $data = $data->where('priority', 'LIKE', '%'.$request->get('priority').'%');
-        // }
         
-        if($request->get('due_date')){
-            $data = $data->whereDate('due_date', '=',date($request->get('due_date')));
-        }
 
         $data = $data->get();
 
-        // $tasks = Todo::where('user_id', auth()->user()->id);
         
         return view('task', ['tasks'=> $data , 'request'=>$request]);
     }

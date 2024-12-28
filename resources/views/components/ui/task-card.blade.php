@@ -8,7 +8,7 @@
         @endif
         flex flex-row items-center border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
         <div class="p-4 md:p-5 w-full flex flex-col gap-2" aria-haspopup="dialog" aria-expanded="false"
-            aria-controls="hs-scale-animation-modal" data-hs-overlay="#hs-scale-animation-modal">
+            aria-controls="hs-scale-animation-modal-{{ $task->id}}" data-hs-overlay="#hs-scale-animation-modal-{{ $task->id}}">
             <h3 class="font-bold text-gray-800 dark:text-white">
                 @if ($task->status == 'done')
                     <s>
@@ -56,9 +56,9 @@
         </div>
     </div>
 
-    <div id="hs-scale-animation-modal"
+    <div id="hs-scale-animation-modal-{{ $task->id}}"
         class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none"
-        role="dialog" tabindex="-1" aria-labelledby="hs-scale-animation-modal-label">
+        role="dialog" tabindex="-1" aria-labelledby="hs-scale-animation-modal-label-{{ $task->id}}">
         <div
             class="hs-overlay-animation-target hs-overlay-open:scale-100 hs-overlay-open:opacity-100 scale-95 opacity-0 ease-in-out transition-all duration-200 sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
             <div
@@ -69,7 +69,7 @@
                     </h3>
                     <button type="button"
                         class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
-                        aria-label="Close" data-hs-overlay="#hs-scale-animation-modal">
+                        aria-label="Close" data-hs-overlay="#hs-scale-animation-modal-{{ $task->id}}">
                         <span class="sr-only">Close</span>
                         <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -80,14 +80,18 @@
                     </button>
                 </div>
                 <div class="p-4 overflow-y-auto flex flex-col gap-4">
-                    <div id="stats" class="flex flex-col flex-wrap gap-5">
+                    <div class="flex flex-col flex-wrap gap-5">
                         <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
                             <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
                               <tr>
                                 <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">Status</td>
                                 <td class="px-6 py-2 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                     <div class='flex flex-row gap-2'>
+                                        @if ($task->status == 'done')
+                                        <x-hugeicons-checkmark-circle-01  class="size-5 text-success" />
+                                        @else
                                         <x-hugeicons-refresh  class="size-5 text-warning" />
+                                        @endif
                                         <p>{{ $task->status }}</p>
                                     </div>
                                 </td>
@@ -135,7 +139,7 @@
                 <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-neutral-700">
                     <button type="button"
                         class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
-                        data-hs-overlay="#hs-scale-animation-modal">
+                        data-hs-overlay="#hs-scale-animation-modal-{{ $task->id}}">
                         Close
                     </button>
                     <a href="/task/{{ $task->id }}/edit"
