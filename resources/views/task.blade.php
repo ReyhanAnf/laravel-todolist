@@ -34,8 +34,8 @@
                             });
                         </script>
                     </div>
-                    <input type="number" placeholder="Priority" name="priority"  value="{{ $request->get('priority') }}"
-                        class="py-3 px-4 w-24 block bg-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" />
+                    {{-- <input type="number" placeholder="Priority" name="priority"  value="{{ $request->get('priority') }}"
+                        class="py-3 px-4 w-24 block bg-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" /> --}}
                     <select name="status"  value="{{ $request->get('status') }}"
                         class="py-3 px-4 pe-5 w-28 block border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                         <option selected="">Status</option>
