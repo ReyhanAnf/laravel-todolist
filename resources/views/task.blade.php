@@ -25,8 +25,8 @@
 
                         <script>
                             // Initialize Flatpickr
-                            flatpickr("#due", {
-                                enableTime: true,
+                            flatpickr("#due_date", {
+                                enableTime: false,
                                 dateFormat: "Y-m-d",
                                 altInput: true,
                                 altFormat: "F j, Y",

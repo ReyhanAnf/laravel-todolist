@@ -39,12 +39,15 @@ class TaskController extends Controller
     } 
 
     public function create(Request $request) {
+        if($request['due_date'] == ''){
+            $request['due_date'] = Carbon::tomorrow();
+        }
+
         $validate = $request->validate([
             'user_id' => 'required|exists:users,id',
             'task' => 'required|string|max:255',
             'description' => 'max:255',
             'status' => 'required|string|max:255',
-            'due_date' => 'string|max:255',
             'tags' => 'max:255',
             'priority' => 'max:255'
         ]);

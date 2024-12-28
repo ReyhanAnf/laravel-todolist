@@ -21,7 +21,11 @@
            <div class="flex flex-row gap-4">
                 <div class=" text-gray-500 dark:text-neutral-400 flex gap-3 items-center">
                     <x-heroicon-o-calendar-date-range class="size-5 text-warning" />
-                    <p>{{ $task->due_date }}</p>
+                    <p>@if ($task->due_date)
+                        {{ $task->due_date }}
+                        @else
+                        <div>-</div>
+                    @endif</p>
                 </div>
                 <div class=" text-gray-500 dark:text-neutral-400 flex gap-3 items-center">
                     @if ($task->status == 'done')
@@ -102,7 +106,11 @@
                                 <td class="px-6 py-2 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                     <div class='flex flex-row gap-2'>
                                         <x-heroicon-o-calendar-date-range class="size-5 text-warning" />
-                                        <p>{{ $task->due_date }}</p>
+                                        <p>@if ($task->due_date)
+                                            {{ $task->due_date }}
+                                            @else
+                                            <div>-</div>
+                                        @endif</p>
                                     </div>
                                 </td>
                               </tr>

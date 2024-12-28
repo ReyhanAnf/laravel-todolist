@@ -9,6 +9,7 @@
                 placeholder="Enter Task">
 
         </div>
+        <div class="text-xs text-warning">@error('task') {{ $message }} @enderror</div>
 
         <div class="relative">
             <label for="input-desc" class="block text-lg font-semibold mb-2 dark:text-white">Description</label>
@@ -127,12 +128,12 @@
 
                 <script>
                     // Initialize Flatpickr
-                    flatpickr("#due", {
+                    flatpickr("#due_date", {
                         enableTime: true,
                         dateFormat: "Y-m-d",
                         altInput: true,
                         altFormat: "F j, Y",
-
+                        
                     });
                 </script>
             </div>
