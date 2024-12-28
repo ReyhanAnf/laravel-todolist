@@ -57,7 +57,7 @@
                 <form action="/task" method="get" class="flex flex-row py-5 w-screen md:w-1/2 overflow-scroll gap-3">
                     <input type="text" name="search" value="{{ $request->get('search') }}"
                         class="py-3 px-4 block w-full bg-gray-100 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                        placeholder="This is placeholder">
+                        placeholder="Search..">
                     <button id="add-task-btn" type="submit"
                         class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-teal-500 text-white hover:bg-teal-600 focus:outline-none focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none">
                         Search

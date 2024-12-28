@@ -27,7 +27,7 @@ class TaskController extends Controller
         }
         
         if($request->get('due_date')){
-            $data = $data->where('due_date', date($request->get('due_date')));
+            $data = $data->whereDate('due_date', date($request->get('due_date')));
         }
 
         $data = $data->get();
