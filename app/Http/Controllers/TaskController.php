@@ -23,7 +23,9 @@ class TaskController extends Controller
             
             $date = $request->get('due_date') ? Carbon::parse($request->get('due_date')) : false;
 
-            $data->whereDate('due_date', $date ?? now());
+            if($date){
+                $data = $data->whereDate('due_date', $date);
+            }
         }
         
 

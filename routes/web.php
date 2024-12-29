@@ -2,13 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\TagController;
 use App\Http\Controllers\TaskController;
-use App\Livewire\Auth\Login;
-use App\Livewire\Auth\Register;
-use App\Livewire\Dashboard\Dashboard;
-use App\Livewire\LoginForm;
-use App\Livewire\RegisterForm;
 use Illuminate\Support\Facades\Route;
 
 /*

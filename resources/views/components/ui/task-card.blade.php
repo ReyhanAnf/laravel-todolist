@@ -1,7 +1,7 @@
 <div>
     <div 
         class="
-        @if ($task->status == 'done')
+        @if ($task->status == 'done' or $task->status == 'skip')
        {{ ' bg-gray-300' }}
         @else
         {{ 'bg-white' }}
@@ -10,7 +10,7 @@
         <div class="p-4 md:p-5 w-full flex flex-col gap-2" aria-haspopup="dialog" aria-expanded="false"
             aria-controls="hs-scale-animation-modal-{{ $task->id}}" data-hs-overlay="#hs-scale-animation-modal-{{ $task->id}}">
             <h3 class="font-bold text-gray-800 dark:text-white">
-                @if ($task->status == 'done')
+                @if ($task->status == 'done' or $task->status == 'skip')
                     <s>
                         {{ $task->task }}
                     </s>
@@ -28,7 +28,7 @@
                     @endif</p>
                 </div>
                 <div class=" text-gray-500 dark:text-neutral-400 flex gap-3 items-center">
-                    @if ($task->status == 'done')
+                    @if ($task->status == 'done' or $task->status == 'skip')
                     <x-hugeicons-checkmark-circle-01  class="size-5 text-success" />
                     @else
                     <x-hugeicons-refresh  class="size-5 text-warning" />
@@ -91,7 +91,7 @@
                                 <td class="px-6 py-2 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">Status</td>
                                 <td class="px-6 py-2 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                     <div class='flex flex-row gap-2'>
-                                        @if ($task->status == 'done')
+                                        @if ($task->status == 'done' or $task->status == 'skip')
                                         <x-hugeicons-checkmark-circle-01  class="size-5 text-success" />
                                         @else
                                         <x-hugeicons-refresh  class="size-5 text-warning" />
