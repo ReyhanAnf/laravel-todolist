@@ -109,7 +109,7 @@
                             <div class="text-xs text-warning">@error('email') {{ $message }} @enderror</div>
     
                             <div class="relative" id="i-password">
-                                <input wire:model="password" type="password" name="password" id="hs-strong-password-with-indicator-and-hint-in-popover" class="peer p-4 pl-10 block w-full bg-gray-100 border-transparent  rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:focus:ring-neutral-600
+                                <input type="password" name="password" id="hs-strong-password-with-indicator-and-hint-in-popover" class="peer p-4 pl-10 block w-full bg-gray-100 border-transparent  rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:focus:ring-neutral-600
                                 focus:pt-6
                                 focus:pb-2
                                 [&:not(:placeholder-shown)]:pt-6
@@ -235,9 +235,9 @@
                                   </div>
                             </div>
                             <div class="text-xs text-warning">@error('password') {{ $message }} @enderror</div>
-    
+                            
                             <div class="relative" id="i-confirm-password">
-                                <input wire:model="confirm_password" type="password" name="confirm_password" id="hs-floating-input-confirm-password-value" class="peer p-4 pl-10 block w-full bg-gray-100 border-transparent  rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:focus:ring-neutral-600
+                                <input type="password" name="confirm_password" id="hs-floating-input-confirm-password-value" class="peer p-4 pl-10 block w-full bg-gray-100 border-transparent  rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:focus:ring-neutral-600
                                 focus:pt-6
                                 focus:pb-2
                                 [&:not(:placeholder-shown)]:pt-6
@@ -274,8 +274,10 @@
                                         <path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z"></path>
                                         <circle cx="16.5" cy="7.5" r=".5"></circle>
                                     </svg>
-                                </div>
+                                  </div>
                             </div>
+                            <div class="text-xs text-warning">@error('confirm_password') {{ $message }} @enderror</div>
+
                             
                             <div class="relative">
                                 <a href="/login" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-teal-500 text-teal-500 hover:border-teal-400 hover:text-teal-400 focus:outline-none focus:border-teal-400 focus:text-teal-400 disabled:opacity-50 disabled:pointer-events-none">
