@@ -21,7 +21,7 @@
                     class="flex flex-row py-5 px-2 w-screen md:w-full overflow-scroll md:overflow-auto gap-3">
                     <div class="relative flex flex-row items-center">
                         <input type="date" name="due_date" id="due_date"  value="{{ $request->get('due_date') }}"
-                            class=" w-full p-2 shadow-sm rounded-md ring-1 ring-gray-200">
+                            class=" w-full p-2 shadow-sm rounded-md ring-1 ring-gray-200 dark:text-neutral-950">
 
                         <script>
                             // Initialize Flatpickr
@@ -50,7 +50,7 @@
                         Filter
                     </button>
                     <a href={{ route('task') }}
-                        class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent border-primary text-gray-800 hover:bg-secondary focus:outline-none focus:bg-secondary disabled:opacity-50 disabled:pointer-events-none  shadow-sm">
+                        class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent border-primary text-gray-800 dark:text-gray-100 hover:bg-secondary focus:outline-none focus:bg-secondary disabled:opacity-50 disabled:pointer-events-none  shadow-sm">
                         Clear Filter
                     </a>
                 </form>
