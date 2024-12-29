@@ -19,10 +19,9 @@ class RegisterController extends Controller
         ]);
 
         $validate['password'] = Hash::make($request->password);
-
         unset($validate['confirm_password']);
-        User::create($validate);
 
+        User::create($validate);
         session()->flash('status', 'Registrasi Berhasil!');
         
         return redirect('/login');

@@ -47,5 +47,5 @@ Route::delete('task/{id}', [TaskController::class, 'destroy'])->middleware('auth
 Route::get('task/add', [TaskController::class, 'addTaskForm'])->middleware('auth')->name('add-task-form');
 Route::post('task/add', [TaskController::class, 'create'])->middleware('auth')->name('add-task');
 
-Route::get('task/{id}/edit', [TaskController::class, 'editTaskForm'])->middleware('auth')->name('edit-task-form');
+Route::get('task/{id}/edit', [TaskController::class, 'updateTaskForm'])->middleware('auth')->name('edit-task-form');
 Route::patch('task/{id}/edit', [TaskController::class, 'update'])->middleware('auth')->name('update-task');

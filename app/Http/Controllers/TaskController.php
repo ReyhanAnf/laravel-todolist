@@ -18,24 +18,28 @@ class TaskController extends Controller
             ->orWhere('tags', 'LIKE', '%'.$request->get('search').'%');            
         }
         
-        if($request->get('status')){
+        if($request->get('status') or $request->get('due_date')){
             $data = $data->where('status', 'LIKE', '%'.$request->get('status').'%');
-            if($request->get('due_date')){
-                $date = Carbon::parse($request->get('due_date'));
-                $data->whereDate('due_date', $date);
-            }
+            
+            $date = $request->get('due_date') ? Carbon::parse($request->get('due_date')) : false;
+
+            $data->whereDate('due_date', $date ?? now());
         }
         
 
         $data = $data->get();
 
-        
         return view('task', ['tasks'=> $data , 'request'=>$request]);
     }
 
     public function addTaskForm(){
         return view('task-add');
     } 
+
+    public function updateTaskForm($id){
+        return view('task-edit', ['task' => Todo::where('id', $id)->get()]);
+    }
+
 
     public function create(Request $request) {
         if($request['due_date'] == ''){
@@ -52,15 +56,9 @@ class TaskController extends Controller
         ]);
 
         
-
         Todo::create($validate);
         return redirect('/task');
     }
-
-
-    public function editTaskForm($id){
-        return view('task-edit', ['task' => Todo::where('id', $id)->get()]);
-    } 
 
     public function update($id, Request $request) {
         $validate = $request->validate([

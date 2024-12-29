@@ -12,12 +12,11 @@ class LoginController extends Controller
     {
         $credentials = $request->validate([
             'email' => 'required|string|min:3|max:255',
-            'password' => 'required|string|min:3|max:255',
+            'password' => 'required|string|min:6|max:255',
         ]);
         
         if (Auth::attempt($credentials)){
             session()->regenerate();
-
             return redirect()->intended('dashboard');
         }
         
